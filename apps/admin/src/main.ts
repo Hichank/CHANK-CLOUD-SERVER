@@ -16,7 +16,9 @@ async function bootstrap() {
   // 允许跨域
   app.enableCors();
 
-  await app.listen(9709);
-  console.log('http://localhost:9709/api-docs');
+  const PORT = process.env.ADMIN_PORT || 3000;
+
+  await app.listen(PORT);
+  console.log(`http://localhost:${PORT}/api-docs`);
 }
 bootstrap();
