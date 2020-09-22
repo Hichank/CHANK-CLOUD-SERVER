@@ -9,6 +9,7 @@ async function bootstrap() {
     .setTitle('CHANK-CLOUD后台管理系统接口文档')
     .setDescription('文档描述')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);

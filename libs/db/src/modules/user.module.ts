@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ModelOptions, prop } from '@typegoose/typegoose';
+import { hashSync } from 'bcryptjs';
 
 @ModelOptions({
   schemaOptions: {
@@ -9,17 +10,17 @@ import { ModelOptions, prop } from '@typegoose/typegoose';
 export class User {
   @ApiProperty({ description: '姓名', example: 'Hichank' })
   @prop()
-  name: string;
-
-  @ApiProperty({ description: '年龄', example: 12 })
-  @prop()
-  age: number;
-
-  @ApiProperty({ description: '邮箱', example: 'hichank@outlook.com' })
-  @prop()
-  email: string;
+  username: string;
 
   @ApiProperty({ description: '密码', example: '123456' })
-  @prop()
+  @prop({
+    select: false,
+    get(value) {
+      return value;
+    },
+    set(value) {
+      return (value && hashSync(value)) || value;
+    },
+  })
   password: string;
 }
