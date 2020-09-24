@@ -9,3 +9,12 @@ SERVER_PORT = 9710
 
 # 密钥
 SECRET = LUOHAICHANG
+
+#阿里云accessKeyId
+ACCESSKEYID = 123
+#阿里云accessKeySecret
+ACCESSKEYSECRET = 123
+#阿里云region
+REGION = 123
+#阿里云bucket
+BUCKET = 123

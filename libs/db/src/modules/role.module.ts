@@ -6,12 +6,8 @@ import { ModelOptions, prop } from '@typegoose/typegoose';
     timestamps: true,
   },
 })
-export class Tag {
-  @ApiProperty({ description: '标签名', example: '恐怖' })
+export class Role {
+  @ApiProperty({ description: '权限名称', example: '用户管理' })
   @prop()
   name: string;
-
-  @ApiProperty({ description: '标签描述', example: '专门吓人的标签' })
-  @prop()
-  description: string;
 }

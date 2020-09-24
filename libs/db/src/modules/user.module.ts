@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { ModelOptions, prop } from '@typegoose/typegoose';
+import { ModelOptions, prop, Ref } from '@typegoose/typegoose';
 import { hashSync } from 'bcryptjs';
+import { Role } from './role.module';
 
 @ModelOptions({
   schemaOptions: {
@@ -8,7 +9,7 @@ import { hashSync } from 'bcryptjs';
   },
 })
 export class User {
-  @ApiProperty({ description: '姓名', example: 'Hichank' })
+  @ApiProperty({ description: '用户名', example: 'Hichank' })
   @prop()
   username: string;
 
@@ -23,4 +24,15 @@ export class User {
     },
   })
   password: string;
+
+  @ApiProperty({
+    description: '头像',
+    example: 'https://cn.vuejs.org/images/logo.png',
+  })
+  @prop()
+  avatar: string;
+
+  @ApiProperty({ description: '权限', example: [] })
+  @prop({ ref: 'Role' })
+  roles: Ref<Role>[];
 }

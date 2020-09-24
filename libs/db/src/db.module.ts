@@ -3,8 +3,7 @@ import { DbService } from './db.service';
 import { TypegooseModule } from 'nestjs-typegoose';
 
 import { User } from './modules/user.module';
-import { Post } from './modules/post.module';
-import { Tag } from './modules/tag.module';
+import { Role } from './modules/role.module';
 
 @Global()
 @Module({
@@ -20,9 +19,9 @@ import { Tag } from './modules/tag.module';
         };
       },
     }),
-    TypegooseModule.forFeature([User, Post, Tag]),
+    TypegooseModule.forFeature([User, Role]),
   ],
   providers: [DbService],
-  exports: [DbService, TypegooseModule.forFeature([User, Post, Tag])],
+  exports: [DbService, TypegooseModule.forFeature([User, Role])],
 })
 export class DbModule {}
