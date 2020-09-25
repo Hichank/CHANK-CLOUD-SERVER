@@ -6,6 +6,7 @@ import { CommonModule } from '@app/common';
 import { AuthModule } from './modules/auth/auth.module';
 import { RolesModule } from './modules/roles/roles.module';
 import { MulterModule } from '@nestjs/platform-express';
+import { RoutesModule } from './modules/routes/routes.module';
 const MAO = require('multer-aliyun-oss');
 
 @Module({
@@ -28,6 +29,7 @@ const MAO = require('multer-aliyun-oss');
     UsersModule,
     AuthModule,
     RolesModule,
+    RoutesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

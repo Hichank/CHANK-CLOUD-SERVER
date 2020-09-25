@@ -4,6 +4,7 @@ import { TypegooseModule } from 'nestjs-typegoose';
 
 import { User } from './modules/user.module';
 import { Role } from './modules/role.module';
+import { Route } from './modules/route.module';
 
 @Global()
 @Module({
@@ -19,9 +20,9 @@ import { Role } from './modules/role.module';
         };
       },
     }),
-    TypegooseModule.forFeature([User, Role]),
+    TypegooseModule.forFeature([User, Role, Route]),
   ],
   providers: [DbService],
-  exports: [DbService, TypegooseModule.forFeature([User, Role])],
+  exports: [DbService, TypegooseModule.forFeature([User, Role, Route])],
 })
 export class DbModule {}

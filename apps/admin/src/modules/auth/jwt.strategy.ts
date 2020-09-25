@@ -15,10 +15,15 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate({ id }) {
-    const user = await this.userModel.findById(id, {
-      
-    });
-    console.log(user);
-    return await this.userModel.findById(id);
+    const user = await this.userModel
+      .findById(id)
+      .populate({
+        path: 'roles',
+        populate: {
+          path: 'routes'
+        },
+      })
+      .exec();
+    return user;
   }
 }
