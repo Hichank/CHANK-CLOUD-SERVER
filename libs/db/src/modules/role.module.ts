@@ -8,7 +8,7 @@ import { Route } from './route.module';
   },
 })
 export class Role {
-  @ApiProperty({ description: '权限名称', example: '用户管理' })
+  @ApiProperty({ description: '权限名称', example: '超级管理员' })
   @prop()
   name: string;
 
