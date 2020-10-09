@@ -1,12 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './modules/users/users.module';
+import { UsersModule } from './modules/system/users/users.module';
 import { CommonModule } from '@app/common';
 import { AuthModule } from './modules/auth/auth.module';
-import { RolesModule } from './modules/roles/roles.module';
+import { RolesModule } from './modules/system/roles/roles.module';
 import { MulterModule } from '@nestjs/platform-express';
-import { RoutesModule } from './modules/routes/routes.module';
+import { RoutesModule } from './modules/system/routes/routes.module';
+import { AdsModule } from './modules/operation/ads/ads.module';
+import { ArticlesModule } from './modules/operation/articles/articles.module';
 const MAO = require('multer-aliyun-oss');
 
 @Module({
@@ -30,6 +32,8 @@ const MAO = require('multer-aliyun-oss');
     AuthModule,
     RolesModule,
     RoutesModule,
+    AdsModule,
+    ArticlesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -2,7 +2,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, StrategyOptions, ExtractJwt } from 'passport-jwt';
 import { ReturnModelType } from '@typegoose/typegoose';
 import { InjectModel } from 'nestjs-typegoose';
-import { User } from '@libs/db/modules/user.module';
+import { User } from '@libs/db/modules/system/user.module';
 
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(

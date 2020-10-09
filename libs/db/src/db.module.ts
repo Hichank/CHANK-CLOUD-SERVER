@@ -2,9 +2,12 @@ import { Global, Module } from '@nestjs/common';
 import { DbService } from './db.service';
 import { TypegooseModule } from 'nestjs-typegoose';
 
-import { User } from './modules/user.module';
-import { Role } from './modules/role.module';
-import { Route } from './modules/route.module';
+import { User } from './modules/system/user.module';
+import { Role } from './modules/system/role.module';
+import { Route } from './modules/system/route.module';
+
+import { Ad } from './modules/operation/ad.module';
+import { Article } from './modules/operation/article.module';
 
 @Global()
 @Module({
@@ -20,9 +23,12 @@ import { Route } from './modules/route.module';
         };
       },
     }),
-    TypegooseModule.forFeature([User, Role, Route]),
+    TypegooseModule.forFeature([User, Role, Route, Ad, Article]),
   ],
   providers: [DbService],
-  exports: [DbService, TypegooseModule.forFeature([User, Role, Route])],
+  exports: [
+    DbService,
+    TypegooseModule.forFeature([User, Role, Route, Ad, Article]),
+  ],
 })
 export class DbModule {}

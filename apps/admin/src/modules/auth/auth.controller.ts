@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ReturnModelType, DocumentType } from '@typegoose/typegoose';
 import { InjectModel } from 'nestjs-typegoose';
-import { User } from '@libs/db/modules/user.module';
+import { User } from '@libs/db/modules/system/user.module';
 import { AuthGuard } from '@nestjs/passport';
 import { LoginDto } from './auth.dto';
 import { JwtService } from '@nestjs/jwt';

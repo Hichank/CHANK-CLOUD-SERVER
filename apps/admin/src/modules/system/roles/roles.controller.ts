@@ -2,7 +2,7 @@ import { Controller, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Crud } from 'nestjs-mongoose-crud';
-import { Role } from '@libs/db/modules/role.module';
+import { Role } from '@libs/db/modules/system/role.module';
 import { ReturnModelType } from '@typegoose/typegoose';
 import { InjectModel } from 'nestjs-typegoose';
 

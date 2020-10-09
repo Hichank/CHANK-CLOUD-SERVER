@@ -3,7 +3,7 @@ import { Strategy, IStrategyOptions } from 'passport-local';
 // import { PassportStrategy } from '@nestjs/passport';
 import { ReturnModelType } from '@typegoose/typegoose';
 import { InjectModel } from 'nestjs-typegoose';
-import { User } from '@libs/db/modules/user.module';
+import { User } from '@libs/db/modules/system/user.module';
 import { BadRequestException } from '@nestjs/common';
 import { compareSync } from 'bcryptjs';
 
